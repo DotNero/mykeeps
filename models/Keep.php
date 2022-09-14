@@ -22,7 +22,7 @@ class Keep extends \yii\db\ActiveRecord
      * {@inheritdoc}
      */
     public static function tableName()
-    {
+    {   
         return 'keep';
     }
 
@@ -54,6 +54,10 @@ class Keep extends \yii\db\ActiveRecord
     /**
      * {@inheritdoc}
      */
+    public static function find()
+    {
+        /*return new \app\models\query\KeepQuery(get_called_class());*/
+    }
     public function attributeLabels()
     {
         return [

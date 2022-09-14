@@ -21,18 +21,26 @@ class KeepController extends Controller
      */
     public function behaviors()
     {
-        return array_merge(
-            parent::behaviors(),
-            [
-                'verbs' => [
-                    'class' => VerbFilter::className(),
-                    'actions' => [
-                        'delete' => ['POST'],
-                    ],
-                ],
+    return [
+        'access' => [
+            'class' => AccessControl::class,
+            'only' => ['create', 'update', 'delete'],
+            'rules' => [
+                [
+                    'actions' => ['create', 'update', 'delete'],
+                    'allow' => true,
+                    'roles' => ['@']
+                ]
             ]
-        );
-    }
+        ],
+        'verbs' => [
+            'class' => VerbFilter::class,
+            'actions' => [
+                'delete' => ['POST'],
+            ],
+        ],
+    ];
+}
 
     /**
      * Lists all Keep models.
