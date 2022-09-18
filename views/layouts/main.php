@@ -40,6 +40,9 @@ AppAsset::register($this);
             ['label' => 'Home', 'url' => ['/site/index']],
             ['label' => 'About', 'url' => ['/site/about']],
             ['label' => 'Contact', 'url' => ['/site/contact']],
+            ['label' => 'Create Keep', 'url' => ['/keep/create']],
+            ['label' => 'Search Keep', 'url' => ['/keep/_search']],
+            ['label' => 'My Keeps', 'url' => ['/keep/_search']],
             Yii::$app->user->isGuest ? (
                 ['label' => 'Login', 'url' => ['/site/login']]
             ) : (
@@ -50,7 +53,6 @@ AppAsset::register($this);
                     ['class' => 'btn btn-link logout']
                 )
                 . Html::endForm()
-                . '</li>'
                 ),
                 Yii::$app->user->isGuest ? (
                     ['label' => 'Signup', 'url' => ['site/signup']]
